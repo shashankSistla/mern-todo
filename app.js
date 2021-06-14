@@ -1,4 +1,18 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+
+const mongoOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+};
+
+//Database connection
+mongoose.connect('mongodb://localhost:27017/todo', mongoOptions, (err, db) => { //use todo
+    if(err) throw err;
+    console.log("Successfully connected to database");
+    console.log(db);
+}) 
 
 const app = express();
 app.use(express.json());
